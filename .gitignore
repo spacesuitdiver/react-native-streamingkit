@@ -1,0 +1,15 @@
+node_modules/**/*
+build
+RNStreamingKit.xcodeproj/xcuserdata/**/*
+RNStreamingKit.xcodeproj/project.xcworkspace/**/*
+RNStreamingKit.xcworkspace/xcuserdata/**/*
+.idea
+.gradle/
+gradlew
+gradlew.bat
+gradle/
+*.properties
+*.iml
+npm-debug.log
+Pods
+Podfile.lock

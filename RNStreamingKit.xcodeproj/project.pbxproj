@@ -1,0 +1,328 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A2C73D481CB2E12700DED436 /* RNStreamingKitManager.h in Headers */ = {isa = PBXBuildFile; fileRef = A2C73D471CB2E12700DED436 /* RNStreamingKitManager.h */; };
+		A2C73D4A1CB2E12700DED436 /* RNStreamingKitManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A2C73D491CB2E12700DED436 /* RNStreamingKitManager.m */; };
+		FDFC8D2E2EDE962A6413B0C4 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FF77AE32C9E6250559B9904C /* libPods.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		05921C833954F575DCA076C7 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		2190CC742F421029584C44B1 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		A2C73D441CB2E12700DED436 /* libRNStreamingKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNStreamingKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A2C73D471CB2E12700DED436 /* RNStreamingKitManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RNStreamingKitManager.h; path = ../RNStreamingKit/RNStreamingKitManager.h; sourceTree = "<group>"; };
+		A2C73D491CB2E12700DED436 /* RNStreamingKitManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = RNStreamingKitManager.m; path = ../RNStreamingKit/RNStreamingKitManager.m; sourceTree = "<group>"; };
+		FF77AE32C9E6250559B9904C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A2C73D411CB2E12700DED436 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FDFC8D2E2EDE962A6413B0C4 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		58CF65487BC3194B31AE1AFF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FF77AE32C9E6250559B9904C /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A150CC9F711A6FA0DBE51A02 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				05921C833954F575DCA076C7 /* Pods.debug.xcconfig */,
+				2190CC742F421029584C44B1 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		A2C73D3B1CB2E12700DED436 = {
+			isa = PBXGroup;
+			children = (
+				A2C73D461CB2E12700DED436 /* RNStreamingKit */,
+				A2C73D451CB2E12700DED436 /* Products */,
+				A150CC9F711A6FA0DBE51A02 /* Pods */,
+				58CF65487BC3194B31AE1AFF /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		A2C73D451CB2E12700DED436 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A2C73D441CB2E12700DED436 /* libRNStreamingKit.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A2C73D461CB2E12700DED436 /* RNStreamingKit */ = {
+			isa = PBXGroup;
+			children = (
+				A2C73D471CB2E12700DED436 /* RNStreamingKitManager.h */,
+				A2C73D491CB2E12700DED436 /* RNStreamingKitManager.m */,
+			);
+			path = RNStreamingKit;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		A2C73D421CB2E12700DED436 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A2C73D481CB2E12700DED436 /* RNStreamingKitManager.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		A2C73D431CB2E12700DED436 /* RNStreamingKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A2C73D4D1CB2E12700DED436 /* Build configuration list for PBXNativeTarget "RNStreamingKit" */;
+			buildPhases = (
+				D8579821652173D4ADC7CE80 /* Check Pods Manifest.lock */,
+				A2C73D401CB2E12700DED436 /* Sources */,
+				A2C73D411CB2E12700DED436 /* Frameworks */,
+				A2C73D421CB2E12700DED436 /* Headers */,
+				2F9D82CC1054155FBA84585A /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RNStreamingKit;
+			productName = RNMPRemoteCommandCenter;
+			productReference = A2C73D441CB2E12700DED436 /* libRNStreamingKit.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A2C73D3C1CB2E12700DED436 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Clever Lever";
+				TargetAttributes = {
+					A2C73D431CB2E12700DED436 = {
+						CreatedOnToolsVersion = 7.3;
+					};
+				};
+			};
+			buildConfigurationList = A2C73D3F1CB2E12700DED436 /* Build configuration list for PBXProject "RNStreamingKit" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = A2C73D3B1CB2E12700DED436;
+			productRefGroup = A2C73D451CB2E12700DED436 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A2C73D431CB2E12700DED436 /* RNStreamingKit */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2F9D82CC1054155FBA84585A /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D8579821652173D4ADC7CE80 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A2C73D401CB2E12700DED436 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A2C73D4A1CB2E12700DED436 /* RNStreamingKitManager.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		A2C73D4B1CB2E12700DED436 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		A2C73D4C1CB2E12700DED436 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A2C73D4E1CB2E12700DED436 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 05921C833954F575DCA076C7 /* Pods.debug.xcconfig */;
+			buildSettings = {
+				EXECUTABLE_PREFIX = lib;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../../React/**",
+					"$(SRCROOT)/../react-native/React/**",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		A2C73D4F1CB2E12700DED436 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2190CC742F421029584C44B1 /* Pods.release.xcconfig */;
+			buildSettings = {
+				EXECUTABLE_PREFIX = lib;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../../React/**",
+					"$(SRCROOT)/../react-native/React/**",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A2C73D3F1CB2E12700DED436 /* Build configuration list for PBXProject "RNStreamingKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A2C73D4B1CB2E12700DED436 /* Debug */,
+				A2C73D4C1CB2E12700DED436 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A2C73D4D1CB2E12700DED436 /* Build configuration list for PBXNativeTarget "RNStreamingKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A2C73D4E1CB2E12700DED436 /* Debug */,
+				A2C73D4F1CB2E12700DED436 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A2C73D3C1CB2E12700DED436 /* Project object */;
+}
