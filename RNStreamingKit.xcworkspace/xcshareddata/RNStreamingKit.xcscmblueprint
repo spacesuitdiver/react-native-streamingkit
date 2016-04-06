@@ -1,4 +1,5 @@
 {
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "5142CE9EF5AA0F5FDAEAE7A6C1D871848AD93533",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
     "c4a520e6-e2eb-43b1-bc5c-90f107ee77be++7966" : {
 
@@ -6,17 +7,24 @@
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
     "c4a520e6-e2eb-43b1-bc5c-90f107ee77be++7966" : 0,
+    "5142CE9EF5AA0F5FDAEAE7A6C1D871848AD93533" : 0,
     "FD544CED4FF55F79F1809A0942A372673E7264FB" : 0
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "D7FC5904-69F5-4DF1-96D7-B7827B00E575",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
     "c4a520e6-e2eb-43b1-bc5c-90f107ee77be++7966" : "..\/..",
+    "5142CE9EF5AA0F5FDAEAE7A6C1D871848AD93533" : "react-native-streamingkit\/",
     "FD544CED4FF55F79F1809A0942A372673E7264FB" : ".."
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "RNStreamingKit",
   "DVTSourceControlWorkspaceBlueprintVersion" : 204,
   "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "RNStreamingKit.xcworkspace",
   "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/LeBlaaanc\/react-native-streamingkit.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "5142CE9EF5AA0F5FDAEAE7A6C1D871848AD93533"
+    },
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/bitbucket.org\/buzznog\/willsmith-mobileapp.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",

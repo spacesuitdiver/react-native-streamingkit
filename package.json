@@ -1,6 +1,6 @@
 {
   "name": "react-native-streamingkit",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Use the StreamingKit third party library in React Native",
   "main": "index",
   "author": {
