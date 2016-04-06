@@ -31,6 +31,10 @@ module.exports = {
     RNStreamingKitManager.clearQueue();
   },  
 
+  seekToTime: function(time) {
+    RNStreamingKitManager.seekToTime(time);
+  },
+
   addListener: function(cb) {
     listeners[cb] = DeviceEventEmitter.addListener('StreamingKitEvent', cb);
   },
