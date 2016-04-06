@@ -7,7 +7,7 @@
 ## Install CocoaPod dependency
 
 ```
-$ cd node_modules/react-native-streamingkit`
+$ cd node_modules/react-native-streamingkit
 $ pod install
 ```
 
