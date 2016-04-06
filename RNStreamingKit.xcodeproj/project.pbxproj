@@ -7,37 +7,48 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A22881361CB5B39D0085BB23 /* libStreamingKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A228812F1CB5B34E0085BB23 /* libStreamingKit.a */; };
 		A2C73D481CB2E12700DED436 /* RNStreamingKitManager.h in Headers */ = {isa = PBXBuildFile; fileRef = A2C73D471CB2E12700DED436 /* RNStreamingKitManager.h */; };
 		A2C73D4A1CB2E12700DED436 /* RNStreamingKitManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A2C73D491CB2E12700DED436 /* RNStreamingKitManager.m */; };
-		A2D617E51CB5ABCF005A39A2 /* libStreamingKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A2D617E41CB5ABCF005A39A2 /* libStreamingKit.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		A2D617F41CB5AC69005A39A2 /* PBXContainerItemProxy */ = {
+		A228812E1CB5B34E0085BB23 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = A2D617EF1CB5AC69005A39A2 /* Pods.xcodeproj */;
+			containerPortal = A22881261CB5B34E0085BB23 /* StreamingKit.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 0B4E11DB368937C9CA298E05AA71F646;
-			remoteInfo = Pods;
-		};
-		A2D617F61CB5AC69005A39A2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = A2D617EF1CB5AC69005A39A2 /* Pods.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = B20FEE450FACB3425760190956D21030;
+			remoteGlobalIDString = A1E7C4C8188D57F50010896F;
 			remoteInfo = StreamingKit;
+		};
+		A22881301CB5B34E0085BB23 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A22881261CB5B34E0085BB23 /* StreamingKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A1E7C4D8188D57F60010896F;
+			remoteInfo = StreamingKitTests;
+		};
+		A22881321CB5B34E0085BB23 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A22881261CB5B34E0085BB23 /* StreamingKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A1A49969189E744400E2A2E2;
+			remoteInfo = StreamingKitMac;
+		};
+		A22881341CB5B34E0085BB23 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A22881261CB5B34E0085BB23 /* StreamingKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A1A4997A189E744500E2A2E2;
+			remoteInfo = StreamingKitMacTests;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		05921C833954F575DCA076C7 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		2190CC742F421029584C44B1 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		A22881261CB5B34E0085BB23 /* StreamingKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = StreamingKit.xcodeproj; path = StreamingKit/StreamingKit/StreamingKit.xcodeproj; sourceTree = "<group>"; };
 		A2C73D441CB2E12700DED436 /* libRNStreamingKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNStreamingKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2C73D471CB2E12700DED436 /* RNStreamingKitManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RNStreamingKitManager.h; path = ../RNStreamingKit/RNStreamingKitManager.h; sourceTree = "<group>"; };
 		A2C73D491CB2E12700DED436 /* RNStreamingKitManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = RNStreamingKitManager.m; path = ../RNStreamingKit/RNStreamingKitManager.m; sourceTree = "<group>"; };
 		A2D617E41CB5ABCF005A39A2 /* libStreamingKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libStreamingKit.a; path = "Pods/../build/Debug-iphoneos/libStreamingKit.a"; sourceTree = "<group>"; };
-		A2D617EF1CB5AC69005A39A2 /* Pods.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Pods.xcodeproj; path = Pods/Pods.xcodeproj; sourceTree = "<group>"; };
-		FF77AE32C9E6250559B9904C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,7 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A2D617E51CB5ABCF005A39A2 /* libStreamingKit.a in Frameworks */,
+				A22881361CB5B39D0085BB23 /* libStreamingKit.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,27 +67,35 @@
 			isa = PBXGroup;
 			children = (
 				A2D617E41CB5ABCF005A39A2 /* libStreamingKit.a */,
-				FF77AE32C9E6250559B9904C /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		A150CC9F711A6FA0DBE51A02 /* Pods */ = {
+		A22881251CB5B3440085BB23 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				05921C833954F575DCA076C7 /* Pods.debug.xcconfig */,
-				2190CC742F421029584C44B1 /* Pods.release.xcconfig */,
+				A22881261CB5B34E0085BB23 /* StreamingKit.xcodeproj */,
 			);
-			name = Pods;
+			name = Libraries;
+			sourceTree = "<group>";
+		};
+		A22881271CB5B34E0085BB23 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A228812F1CB5B34E0085BB23 /* libStreamingKit.a */,
+				A22881311CB5B34E0085BB23 /* StreamingKitTests.xctest */,
+				A22881331CB5B34E0085BB23 /* libStreamingKitMac.a */,
+				A22881351CB5B34E0085BB23 /* StreamingKitMacTests.xctest */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		A2C73D3B1CB2E12700DED436 = {
 			isa = PBXGroup;
 			children = (
-				A2D617EF1CB5AC69005A39A2 /* Pods.xcodeproj */,
+				A22881251CB5B3440085BB23 /* Libraries */,
 				A2C73D461CB2E12700DED436 /* RNStreamingKit */,
 				A2C73D451CB2E12700DED436 /* Products */,
-				A150CC9F711A6FA0DBE51A02 /* Pods */,
 				58CF65487BC3194B31AE1AFF /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -98,15 +117,6 @@
 			path = RNStreamingKit;
 			sourceTree = "<group>";
 		};
-		A2D617F01CB5AC69005A39A2 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				A2D617F51CB5AC69005A39A2 /* libPods.a */,
-				A2D617F71CB5AC69005A39A2 /* libStreamingKit.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -125,11 +135,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A2C73D4D1CB2E12700DED436 /* Build configuration list for PBXNativeTarget "RNStreamingKit" */;
 			buildPhases = (
-				D8579821652173D4ADC7CE80 /* Check Pods Manifest.lock */,
 				A2C73D401CB2E12700DED436 /* Sources */,
 				A2C73D411CB2E12700DED436 /* Frameworks */,
 				A2C73D421CB2E12700DED436 /* Headers */,
-				2F9D82CC1054155FBA84585A /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -166,8 +174,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = A2D617F01CB5AC69005A39A2 /* Products */;
-					ProjectRef = A2D617EF1CB5AC69005A39A2 /* Pods.xcodeproj */;
+					ProductGroup = A22881271CB5B34E0085BB23 /* Products */;
+					ProjectRef = A22881261CB5B34E0085BB23 /* StreamingKit.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -178,54 +186,35 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		A2D617F51CB5AC69005A39A2 /* libPods.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libPods.a;
-			remoteRef = A2D617F41CB5AC69005A39A2 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		A2D617F71CB5AC69005A39A2 /* libStreamingKit.a */ = {
+		A228812F1CB5B34E0085BB23 /* libStreamingKit.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libStreamingKit.a;
-			remoteRef = A2D617F61CB5AC69005A39A2 /* PBXContainerItemProxy */;
+			remoteRef = A228812E1CB5B34E0085BB23 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		A22881311CB5B34E0085BB23 /* StreamingKitTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = StreamingKitTests.xctest;
+			remoteRef = A22881301CB5B34E0085BB23 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		A22881331CB5B34E0085BB23 /* libStreamingKitMac.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libStreamingKitMac.a;
+			remoteRef = A22881321CB5B34E0085BB23 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		A22881351CB5B34E0085BB23 /* StreamingKitMacTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = StreamingKitMacTests.xctest;
+			remoteRef = A22881341CB5B34E0085BB23 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		2F9D82CC1054155FBA84585A /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D8579821652173D4ADC7CE80 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A2C73D401CB2E12700DED436 /* Sources */ = {
@@ -318,13 +307,13 @@
 		};
 		A2C73D4E1CB2E12700DED436 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 05921C833954F575DCA076C7 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				EXECUTABLE_PREFIX = lib;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../../React/**",
 					"$(SRCROOT)/../react-native/React/**",
+					"StreamingKit/**",
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -338,13 +327,13 @@
 		};
 		A2C73D4F1CB2E12700DED436 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2190CC742F421029584C44B1 /* Pods.release.xcconfig */;
 			buildSettings = {
 				EXECUTABLE_PREFIX = lib;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../../React/**",
 					"$(SRCROOT)/../react-native/React/**",
+					"StreamingKit/**",
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
