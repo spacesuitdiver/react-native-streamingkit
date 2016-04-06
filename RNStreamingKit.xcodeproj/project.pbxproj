@@ -9,8 +9,25 @@
 /* Begin PBXBuildFile section */
 		A2C73D481CB2E12700DED436 /* RNStreamingKitManager.h in Headers */ = {isa = PBXBuildFile; fileRef = A2C73D471CB2E12700DED436 /* RNStreamingKitManager.h */; };
 		A2C73D4A1CB2E12700DED436 /* RNStreamingKitManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A2C73D491CB2E12700DED436 /* RNStreamingKitManager.m */; };
-		FDFC8D2E2EDE962A6413B0C4 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FF77AE32C9E6250559B9904C /* libPods.a */; };
+		A2D617E51CB5ABCF005A39A2 /* libStreamingKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A2D617E41CB5ABCF005A39A2 /* libStreamingKit.a */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A2D617F41CB5AC69005A39A2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A2D617EF1CB5AC69005A39A2 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 0B4E11DB368937C9CA298E05AA71F646;
+			remoteInfo = Pods;
+		};
+		A2D617F61CB5AC69005A39A2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A2D617EF1CB5AC69005A39A2 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B20FEE450FACB3425760190956D21030;
+			remoteInfo = StreamingKit;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		05921C833954F575DCA076C7 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -18,6 +35,8 @@
 		A2C73D441CB2E12700DED436 /* libRNStreamingKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNStreamingKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2C73D471CB2E12700DED436 /* RNStreamingKitManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RNStreamingKitManager.h; path = ../RNStreamingKit/RNStreamingKitManager.h; sourceTree = "<group>"; };
 		A2C73D491CB2E12700DED436 /* RNStreamingKitManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = RNStreamingKitManager.m; path = ../RNStreamingKit/RNStreamingKitManager.m; sourceTree = "<group>"; };
+		A2D617E41CB5ABCF005A39A2 /* libStreamingKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libStreamingKit.a; path = "Pods/../build/Debug-iphoneos/libStreamingKit.a"; sourceTree = "<group>"; };
+		A2D617EF1CB5AC69005A39A2 /* Pods.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Pods.xcodeproj; path = Pods/Pods.xcodeproj; sourceTree = "<group>"; };
 		FF77AE32C9E6250559B9904C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -26,7 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FDFC8D2E2EDE962A6413B0C4 /* libPods.a in Frameworks */,
+				A2D617E51CB5ABCF005A39A2 /* libStreamingKit.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -36,6 +55,7 @@
 		58CF65487BC3194B31AE1AFF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A2D617E41CB5ABCF005A39A2 /* libStreamingKit.a */,
 				FF77AE32C9E6250559B9904C /* libPods.a */,
 			);
 			name = Frameworks;
@@ -53,6 +73,7 @@
 		A2C73D3B1CB2E12700DED436 = {
 			isa = PBXGroup;
 			children = (
+				A2D617EF1CB5AC69005A39A2 /* Pods.xcodeproj */,
 				A2C73D461CB2E12700DED436 /* RNStreamingKit */,
 				A2C73D451CB2E12700DED436 /* Products */,
 				A150CC9F711A6FA0DBE51A02 /* Pods */,
@@ -75,6 +96,15 @@
 				A2C73D491CB2E12700DED436 /* RNStreamingKitManager.m */,
 			);
 			path = RNStreamingKit;
+			sourceTree = "<group>";
+		};
+		A2D617F01CB5AC69005A39A2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A2D617F51CB5AC69005A39A2 /* libPods.a */,
+				A2D617F71CB5AC69005A39A2 /* libStreamingKit.a */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -134,12 +164,35 @@
 			mainGroup = A2C73D3B1CB2E12700DED436;
 			productRefGroup = A2C73D451CB2E12700DED436 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = A2D617F01CB5AC69005A39A2 /* Products */;
+					ProjectRef = A2D617EF1CB5AC69005A39A2 /* Pods.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				A2C73D431CB2E12700DED436 /* RNStreamingKit */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		A2D617F51CB5AC69005A39A2 /* libPods.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libPods.a;
+			remoteRef = A2D617F41CB5AC69005A39A2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		A2D617F71CB5AC69005A39A2 /* libStreamingKit.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libStreamingKit.a;
+			remoteRef = A2D617F61CB5AC69005A39A2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXShellScriptBuildPhase section */
 		2F9D82CC1054155FBA84585A /* Copy Pods Resources */ = {
@@ -273,6 +326,10 @@
 					"$(SRCROOT)/../../React/**",
 					"$(SRCROOT)/../react-native/React/**",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -288,6 +345,10 @@
 					"$(inherited)",
 					"$(SRCROOT)/../../React/**",
 					"$(SRCROOT)/../react-native/React/**",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
