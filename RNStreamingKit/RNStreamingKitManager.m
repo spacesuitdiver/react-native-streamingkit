@@ -114,6 +114,24 @@ RCT_EXPORT_METHOD(seekToTime:(double)time)
     [self.audioPlayer seekToTime:time];
 }
 
+RCT_EXPORT_METHOD(getDuration: (RCTResponseSenderBlock) callback)
+{
+    if (!self.audioPlayer){
+        callback(@[[NSNull null]]);
+    }
+
+    callback(@[[NSNull null], [NSNumber numberWithDouble:self.audioPlayer.duration]]);
+}
+
+RCT_EXPORT_METHOD(getProgress: (RCTResponseSenderBlock) callback)
+{
+    if (!self.audioPlayer){
+        callback(@[[NSNull null]]);
+    }
+
+    callback(@[[NSNull null], [NSNumber numberWithDouble:self.audioPlayer.progress]]);
+}
+
 RCT_EXPORT_METHOD(getState: (RCTResponseSenderBlock) callback)
 {
     if (!self.audioPlayer) {

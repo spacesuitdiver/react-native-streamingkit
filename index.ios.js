@@ -35,6 +35,18 @@ module.exports = {
     RNStreamingKitManager.seekToTime(time);
   },
 
+  getState: function(cb) {
+    RNStreamingKitManager.getState(cb);
+  },
+
+  getDuration: function(cb) {
+    RNStreamingKitManager.getDuration(cb);
+  },
+
+  getProgress: function(cb) {
+    RNStreamingKitManager.getProgress(cb);
+  },
+
   addListener: function(cb) {
     listeners[cb] = DeviceEventEmitter.addListener('StreamingKitEvent', cb);
   },

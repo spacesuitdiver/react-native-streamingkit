@@ -23,5 +23,7 @@
 - (void)stop;
 - (void)clearQueue;
 - (void)seekToTime: (double)time;
+- (void)getProgress: (RCTResponseSenderBlock) cb;
+- (void)getDuration: (RCTResponseSenderBlock) cb;
 
 @end
