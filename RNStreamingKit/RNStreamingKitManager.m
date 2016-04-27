@@ -288,23 +288,18 @@ RCT_EXPORT_METHOD(getState: (RCTResponseSenderBlock) callback)
     switch (interuptionType)
     {
         case AVAudioSessionInterruptionTypeBegan:
+            [self.bridge.eventDispatcher sendDeviceEventWithName:@"StreamingKitEvent"
+                                                            body:@{@"playerState": @"interruptStart",
+                                                                   @"type": @"audioSessionInterruption"}];
             NSLog(@"Audio Session Interruption case started.");
-            if (self.audioPlayer.state == STKAudioPlayerStatePlaying) {
-                [self.audioPlayer pause];
-                self.isAudioPlayerInterrupted = true;
-            }
             break;
             
         case AVAudioSessionInterruptionTypeEnded:
+            [self.bridge.eventDispatcher sendDeviceEventWithName:@"StreamingKitEvent"
+                                                            body:@{@"playerState": @"interruptEnd",
+                                                                   @"type": @"audioSessionInterruption"}];
+            
             NSLog(@"Audio Session Interruption case ended.");
-            self.isPlayingWithOthers = [[AVAudioSession sharedInstance] isOtherAudioPlaying];
-            //(self.isPlayingWithOthers) ? [self.audioPlayer stop] : [self.audioPlayer resume];
-            if (self.isPlayingWithOthers) {
-                [self.audioPlayer stop];
-            } else if (self.isAudioPlayerInterrupted) {
-                [self.audioPlayer resume];
-                self.isAudioPlayerInterrupted = false;
-            }
             break;
             
         default:
