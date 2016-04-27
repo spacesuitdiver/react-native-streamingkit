@@ -289,13 +289,22 @@ RCT_EXPORT_METHOD(getState: (RCTResponseSenderBlock) callback)
     {
         case AVAudioSessionInterruptionTypeBegan:
             NSLog(@"Audio Session Interruption case started.");
-            [self.audioPlayer pause];
+            if (self.audioPlayer.state == STKAudioPlayerStatePlaying) {
+                [self.audioPlayer pause];
+                self.isAudioPlayerInterrupted = true;
+            }
             break;
             
         case AVAudioSessionInterruptionTypeEnded:
             NSLog(@"Audio Session Interruption case ended.");
             self.isPlayingWithOthers = [[AVAudioSession sharedInstance] isOtherAudioPlaying];
-            (self.isPlayingWithOthers) ? [self.audioPlayer stop] : [self.audioPlayer resume];
+            //(self.isPlayingWithOthers) ? [self.audioPlayer stop] : [self.audioPlayer resume];
+            if (self.isPlayingWithOthers) {
+                [self.audioPlayer stop];
+            } else if (self.isAudioPlayerInterrupted) {
+                [self.audioPlayer resume];
+                self.isAudioPlayerInterrupted = false;
+            }
             break;
             
         default:

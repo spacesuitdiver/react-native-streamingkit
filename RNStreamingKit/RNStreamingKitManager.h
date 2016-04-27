@@ -16,6 +16,9 @@
 @property (nonatomic, strong) STKAudioPlayer *audioPlayer;
 @property (nonatomic, readwrite) BOOL isPlayingWithOthers;
 
+@property (nonatomic, readwrite) BOOL isAudioPlayerInterrupted;
+
+
 - (void)queue: (NSString*)url;
 - (void)play: (NSString*)url;
 - (void)resume;
