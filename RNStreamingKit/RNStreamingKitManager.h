@@ -16,7 +16,6 @@
 @property (nonatomic, strong) STKAudioPlayer *audioPlayer;
 @property (nonatomic, readwrite) BOOL isPlayingWithOthers;
 
-@property (nonatomic, readwrite) NSString *audioPlayerState;
 @property (nonatomic, readwrite) BOOL isAudioPlayerIntrupted;
 
 
