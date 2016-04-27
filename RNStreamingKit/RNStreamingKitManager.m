@@ -289,15 +289,13 @@ RCT_EXPORT_METHOD(getState: (RCTResponseSenderBlock) callback)
     {
         case AVAudioSessionInterruptionTypeBegan:
             [self.bridge.eventDispatcher sendDeviceEventWithName:@"StreamingKitEvent"
-                                                            body:@{@"playerState": @"interruptStart",
-                                                                   @"type": @"audioSessionInterruption"}];
+                                                            body:@{@"type": @"audioSessionInterruptionBegan"}];
             NSLog(@"Audio Session Interruption case started.");
             break;
             
         case AVAudioSessionInterruptionTypeEnded:
             [self.bridge.eventDispatcher sendDeviceEventWithName:@"StreamingKitEvent"
-                                                            body:@{@"playerState": @"interruptEnd",
-                                                                   @"type": @"audioSessionInterruption"}];
+                                                            body:@{@"type": @"audioSessionInterruptionEnded"}];
             
             NSLog(@"Audio Session Interruption case ended.");
             break;
