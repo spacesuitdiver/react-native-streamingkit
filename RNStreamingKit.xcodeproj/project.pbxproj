@@ -7,11 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A2C73D481CB2E12700DED436 /* RNStreamingKitManager.h in Headers */ = {isa = PBXBuildFile; fileRef = A2C73D471CB2E12700DED436 /* RNStreamingKitManager.h */; };
+		A2C73D481CB2E12700DED436 /* ExampleApp.xcodeproj in Headers */ = {isa = PBXBuildFile; fileRef = A2C73D471CB2E12700DED436 /* ExampleApp.xcodeproj */; };
 		A2C73D4A1CB2E12700DED436 /* RNStreamingKitManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A2C73D491CB2E12700DED436 /* RNStreamingKitManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		A266D6101CE284ED003EB302 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A2C73D471CB2E12700DED436 /* ExampleApp.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A1115931188D686000641365;
+			remoteInfo = ExampleApp;
+		};
+		A266D6121CE284ED003EB302 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A2C73D471CB2E12700DED436 /* ExampleApp.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A111594C188D686000641365;
+			remoteInfo = ExampleAppTests;
+		};
 		A2CF094A1CDAB55300B456DB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = A22881261CB5B34E0085BB23 /* StreamingKit.xcodeproj */;
@@ -45,7 +59,7 @@
 /* Begin PBXFileReference section */
 		A22881261CB5B34E0085BB23 /* StreamingKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = StreamingKit.xcodeproj; path = "../reyfonder-mobileapp/node_modules/react-native-streamingkit/Libraries/StreamingKit/StreamingKit/StreamingKit.xcodeproj"; sourceTree = "<group>"; };
 		A2C73D441CB2E12700DED436 /* libRNStreamingKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNStreamingKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		A2C73D471CB2E12700DED436 /* RNStreamingKitManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RNStreamingKitManager.h; path = ../RNStreamingKit/RNStreamingKitManager.h; sourceTree = "<group>"; };
+		A2C73D471CB2E12700DED436 /* ExampleApp.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ExampleApp.xcodeproj; path = ../Libraries/StreamingKit/ExampleApp/ExampleApp.xcodeproj; sourceTree = "<group>"; };
 		A2C73D491CB2E12700DED436 /* RNStreamingKitManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = RNStreamingKitManager.m; path = ../RNStreamingKit/RNStreamingKitManager.m; sourceTree = "<group>"; };
 		A2D617E41CB5ABCF005A39A2 /* libStreamingKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libStreamingKit.a; path = "Pods/../build/Debug-iphoneos/libStreamingKit.a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -77,6 +91,15 @@
 			name = Libraries;
 			sourceTree = "<group>";
 		};
+		A266D60C1CE284ED003EB302 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A266D6111CE284ED003EB302 /* ExampleApp.app */,
+				A266D6131CE284ED003EB302 /* ExampleAppTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		A2C73D3B1CB2E12700DED436 = {
 			isa = PBXGroup;
 			children = (
@@ -98,7 +121,7 @@
 		A2C73D461CB2E12700DED436 /* RNStreamingKit */ = {
 			isa = PBXGroup;
 			children = (
-				A2C73D471CB2E12700DED436 /* RNStreamingKitManager.h */,
+				A2C73D471CB2E12700DED436 /* ExampleApp.xcodeproj */,
 				A2C73D491CB2E12700DED436 /* RNStreamingKitManager.m */,
 			);
 			path = RNStreamingKit;
@@ -122,7 +145,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A2C73D481CB2E12700DED436 /* RNStreamingKitManager.h in Headers */,
+				A2C73D481CB2E12700DED436 /* ExampleApp.xcodeproj in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -172,6 +195,10 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
+					ProductGroup = A266D60C1CE284ED003EB302 /* Products */;
+					ProjectRef = A2C73D471CB2E12700DED436 /* ExampleApp.xcodeproj */;
+				},
+				{
 					ProductGroup = A2CF09441CDAB55300B456DB /* Products */;
 					ProjectRef = A22881261CB5B34E0085BB23 /* StreamingKit.xcodeproj */;
 				},
@@ -184,6 +211,20 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		A266D6111CE284ED003EB302 /* ExampleApp.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = ExampleApp.app;
+			remoteRef = A266D6101CE284ED003EB302 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		A266D6131CE284ED003EB302 /* ExampleAppTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ExampleAppTests.xctest;
+			remoteRef = A266D6121CE284ED003EB302 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		A2CF094B1CDAB55300B456DB /* libStreamingKit.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
