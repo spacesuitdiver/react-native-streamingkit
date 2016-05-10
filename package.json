@@ -11,5 +11,10 @@
   "repository": {
     "type": "git",
     "url": "git@github.com:leblaaanc/react-native-streamingkit.git"
+  },
+  "rnpm": {
+     "ios": {
+      "project": "RNStreamingKit.xcodeproj"
+    }
   }
 }

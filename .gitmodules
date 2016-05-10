@@ -1,3 +1,3 @@
-[submodule "StreamingKit"]
-	path = StreamingKit
+[submodule "Libraries/StreamingKit"]
+	path = Libraries/StreamingKit
 	url = https://github.com/tumtumtum/StreamingKit
