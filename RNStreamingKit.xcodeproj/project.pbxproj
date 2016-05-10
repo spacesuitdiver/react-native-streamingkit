@@ -222,7 +222,7 @@
 					"$(inherited)",
 					"$(SRCROOT)/../../React/**",
 					"$(SRCROOT)/../react-native/React/**",
-					"$(SRCROOT)/StreamingKit/**",
+					"$(SRCROOT)/StreamingKit/StreamingKit/StreamingKit/**",
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -242,7 +242,7 @@
 					"$(inherited)",
 					"$(SRCROOT)/../../React/**",
 					"$(SRCROOT)/../react-native/React/**",
-					"$(SRCROOT)/StreamingKit/**",
+					"$(SRCROOT)/StreamingKit/StreamingKit/StreamingKit/**",
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
