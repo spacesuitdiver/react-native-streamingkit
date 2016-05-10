@@ -1,15 +1,11 @@
 {
   "name": "react-native-streamingkit",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "Use the StreamingKit third party library in React Native",
   "main": "index",
   "author": {
     "name": "Chris LeBlanc",
     "email": "chris@leblaaanc.com",
     "url": "https://github.com/LeBlaaanc/"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:leblaaanc/react-native-streamingkit.git"
   }
 }

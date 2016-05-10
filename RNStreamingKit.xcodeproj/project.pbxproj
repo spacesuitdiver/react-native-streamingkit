@@ -7,44 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A22881361CB5B39D0085BB23 /* libStreamingKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A228812F1CB5B34E0085BB23 /* libStreamingKit.a */; };
 		A2C73D481CB2E12700DED436 /* RNStreamingKitManager.h in Headers */ = {isa = PBXBuildFile; fileRef = A2C73D471CB2E12700DED436 /* RNStreamingKitManager.h */; };
 		A2C73D4A1CB2E12700DED436 /* RNStreamingKitManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A2C73D491CB2E12700DED436 /* RNStreamingKitManager.m */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		A228812E1CB5B34E0085BB23 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = A22881261CB5B34E0085BB23 /* StreamingKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = A1E7C4C8188D57F50010896F;
-			remoteInfo = StreamingKit;
-		};
-		A22881301CB5B34E0085BB23 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = A22881261CB5B34E0085BB23 /* StreamingKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = A1E7C4D8188D57F60010896F;
-			remoteInfo = StreamingKitTests;
-		};
-		A22881321CB5B34E0085BB23 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = A22881261CB5B34E0085BB23 /* StreamingKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = A1A49969189E744400E2A2E2;
-			remoteInfo = StreamingKitMac;
-		};
-		A22881341CB5B34E0085BB23 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = A22881261CB5B34E0085BB23 /* StreamingKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = A1A4997A189E744500E2A2E2;
-			remoteInfo = StreamingKitMacTests;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
-		A22881261CB5B34E0085BB23 /* StreamingKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = StreamingKit.xcodeproj; path = StreamingKit/StreamingKit/StreamingKit.xcodeproj; sourceTree = "<group>"; };
 		A2C73D441CB2E12700DED436 /* libRNStreamingKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNStreamingKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2C73D471CB2E12700DED436 /* RNStreamingKitManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RNStreamingKitManager.h; path = ../RNStreamingKit/RNStreamingKitManager.h; sourceTree = "<group>"; };
 		A2C73D491CB2E12700DED436 /* RNStreamingKitManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = RNStreamingKitManager.m; path = ../RNStreamingKit/RNStreamingKitManager.m; sourceTree = "<group>"; };
@@ -56,7 +23,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A22881361CB5B39D0085BB23 /* libStreamingKit.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,29 +37,9 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		A22881251CB5B3440085BB23 /* Libraries */ = {
-			isa = PBXGroup;
-			children = (
-				A22881261CB5B34E0085BB23 /* StreamingKit.xcodeproj */,
-			);
-			name = Libraries;
-			sourceTree = "<group>";
-		};
-		A22881271CB5B34E0085BB23 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				A228812F1CB5B34E0085BB23 /* libStreamingKit.a */,
-				A22881311CB5B34E0085BB23 /* StreamingKitTests.xctest */,
-				A22881331CB5B34E0085BB23 /* libStreamingKitMac.a */,
-				A22881351CB5B34E0085BB23 /* StreamingKitMacTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		A2C73D3B1CB2E12700DED436 = {
 			isa = PBXGroup;
 			children = (
-				A22881251CB5B3440085BB23 /* Libraries */,
 				A2C73D461CB2E12700DED436 /* RNStreamingKit */,
 				A2C73D451CB2E12700DED436 /* Products */,
 				58CF65487BC3194B31AE1AFF /* Frameworks */,
@@ -172,49 +118,12 @@
 			mainGroup = A2C73D3B1CB2E12700DED436;
 			productRefGroup = A2C73D451CB2E12700DED436 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = A22881271CB5B34E0085BB23 /* Products */;
-					ProjectRef = A22881261CB5B34E0085BB23 /* StreamingKit.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				A2C73D431CB2E12700DED436 /* RNStreamingKit */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		A228812F1CB5B34E0085BB23 /* libStreamingKit.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libStreamingKit.a;
-			remoteRef = A228812E1CB5B34E0085BB23 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		A22881311CB5B34E0085BB23 /* StreamingKitTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = StreamingKitTests.xctest;
-			remoteRef = A22881301CB5B34E0085BB23 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		A22881331CB5B34E0085BB23 /* libStreamingKitMac.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libStreamingKitMac.a;
-			remoteRef = A22881321CB5B34E0085BB23 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		A22881351CB5B34E0085BB23 /* StreamingKitMacTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = StreamingKitMacTests.xctest;
-			remoteRef = A22881341CB5B34E0085BB23 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A2C73D401CB2E12700DED436 /* Sources */ = {
