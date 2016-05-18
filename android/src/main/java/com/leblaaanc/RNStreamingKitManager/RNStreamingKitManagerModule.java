@@ -8,7 +8,7 @@ import java.util.Map;
 public class RNStreamingKitManagerModule extends ReactContextBaseJavaModule {
   ReactApplicationContext reactContext;
 
-  public MPRemoteCommandCenterModule(ReactApplicationContext reactContext) {
+  public void RNStreamingKitManagerModule(ReactApplicationContext reactContext) {
       super(reactContext);
       this.reactContext = reactContext;
   }
