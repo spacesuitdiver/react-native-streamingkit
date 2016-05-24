@@ -9,15 +9,12 @@ import java.util.Collections;
 import java.util.List;
 
 
-
 public class RNStreamingKitManagerPackage implements ReactPackage {
 
   @Override
   public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
       List<NativeModule> modules = new ArrayList<>();
-
       modules.add(new RNStreamingKitManagerModule(reactContext));
-
       return modules;
   }
 
@@ -27,8 +24,7 @@ public class RNStreamingKitManagerPackage implements ReactPackage {
   }
 
   @Override
-  public List<ViewManager> createViewManagers(
-          ReactApplicationContext reactContext) {
+  public List<ViewManager> createViewManagers(ReactApplicationContext reactContext) {
       return Collections.emptyList();
   }
 
