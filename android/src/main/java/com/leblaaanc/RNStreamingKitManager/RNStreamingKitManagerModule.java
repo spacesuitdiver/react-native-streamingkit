@@ -1,6 +1,11 @@
 package com.leblaaanc.RNStreamingKitManager;
 
-import com.facebook.react.bridge.*;
+import com.facebook.react.bridge.NativeModule;
+import com.facebook.react.bridge.ReactApplicationContext;
+import com.facebook.react.bridge.ReactContext;
+import com.facebook.react.bridge.ReactContextBaseJavaModule;
+import com.facebook.react.bridge.ReactMethod;
+import com.facebook.react.bridge.Callback;
 
 import android.util.Log;
 import java.util.Map;
@@ -8,7 +13,7 @@ import java.util.Map;
 public class RNStreamingKitManagerModule extends ReactContextBaseJavaModule {
   ReactApplicationContext reactContext;
 
-  public void RNStreamingKitManagerModule(ReactApplicationContext reactContext) {
+  public RNStreamingKitManagerModule(ReactApplicationContext reactContext) {
       super(reactContext);
       this.reactContext = reactContext;
   }
@@ -76,6 +81,4 @@ public class RNStreamingKitManagerModule extends ReactContextBaseJavaModule {
   {
       System.out.println("RNStreamingKitManager : getState ");
   }
-
-
 }
