@@ -1,21 +1,19 @@
 package com.leblaaanc.RNStreamingKitManager;
 
-import com.facebook.react.bridge.NativeModule;
-import com.facebook.react.bridge.ReactApplicationContext;
-import com.facebook.react.bridge.ReactContext;
-import com.facebook.react.bridge.ReactContextBaseJavaModule;
-import com.facebook.react.bridge.ReactMethod;
-import com.facebook.react.bridge.Callback;
+import com.facebook.react.modules.core.DeviceEventManagerModule;
+import com.facebook.react.bridge.*;
+
 
 import android.util.Log;
 import java.util.Map;
+import android.support.annotation.Nullable;
 
-public class RNStreamingKitManagerModule extends ReactContextBaseJavaModule {
-  ReactApplicationContext reactContext;
+public class RNStreamingKitManagerModule extends ReactContextBaseJavaModule  {
+  ReactApplicationContext _reactContext;
 
   public RNStreamingKitManagerModule(ReactApplicationContext reactContext) {
-      super(reactContext);
-      this.reactContext = reactContext;
+    super(reactContext);
+    _reactContext  = reactContext;
   }
 
   @Override
@@ -81,4 +79,11 @@ public class RNStreamingKitManagerModule extends ReactContextBaseJavaModule {
   {
       System.out.println("RNStreamingKitManager : getState ");
   }
+
+  private void sendEvent(@Nullable WritableMap params) {
+    _reactContext
+      .getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class)
+      .emit("StreamingKitEvent", params);
+  }
+  
 }
