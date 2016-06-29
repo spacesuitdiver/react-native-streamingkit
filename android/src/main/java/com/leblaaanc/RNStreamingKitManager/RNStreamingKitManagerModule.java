@@ -1,3 +1,8 @@
+/*
+Missing:
+    - PlayerState events : stopped and paused
+*/
+
 package com.leblaaanc.RNStreamingKitManager;
 
 import com.facebook.react.modules.core.DeviceEventManagerModule;
@@ -68,17 +73,22 @@ MediaPlayer.OnErrorListener, MediaPlayer.OnBufferingUpdateListener {
   @ReactMethod
   public void play(String url)
   {
-    try {
-      Uri uri = Uri.parse(url);
-      _mediaPlayer.reset();
-      _mediaPlayer.setDataSource(_reactContext, uri);
-      _mediaPlayer.prepareAsync();
-      _isBuffering = true;
+    if (_isPaused) {
+      startPlaying();
+    } else {
+     try {
 
-      Log.d(NAME, "==> play: " + url);
+        notifyPlayerStateChange("buffering");
+       Uri uri = Uri.parse(url);
+       _mediaPlayer.reset();
+       _mediaPlayer.setDataSource(_reactContext, uri);
+       _mediaPlayer.prepareAsync();
+       _isBuffering = true;
 
-    } catch (Exception ex) {
-      ex.printStackTrace();
+
+     } catch (Exception ex) {
+       ex.printStackTrace();
+     }
     }
   }
 
@@ -94,15 +104,31 @@ MediaPlayer.OnErrorListener, MediaPlayer.OnBufferingUpdateListener {
     _isBuffering = false;
 
     Log.d(NAME, "==> stop");
+    notifyPlayerStateChange("stopped");
   }
+
+    @ReactMethod
+    public void pause()
+    {
+      if (isMusicPlaying()) {
+          _mediaPlayer.pause();
+          _isPaused = true;
+          Log.d(NAME, "==> paused");
+          notifyPlayerStateChange("paused");
+      } else {
+          Log.d(NAME, "==> pause, media player is not playing");
+      }
+
+    }
 
   @ReactMethod
   public void resume() {
     if (_isPaused) {
         _mediaPlayer.start();
+        Log.d(NAME, "==> resume");
+    } else {
+        Log.d(NAME, "==> resume not called as media is no paused");
     }
-
-    Log.d(NAME, "==> resume");
   }
 
   @ReactMethod
@@ -124,23 +150,15 @@ MediaPlayer.OnErrorListener, MediaPlayer.OnBufferingUpdateListener {
   }
 
   @ReactMethod
-  public void pause()
-  {
-    if (isMusicPlaying()) {
-        _mediaPlayer.pause();
-        _isPaused = true;
-    }
-    Log.d(NAME, "==> pause");
-  }
-
-  @ReactMethod
   public void seekToTime(Integer time)
   {
     if (isMusicPlaying() || _isPaused) {
+        // time will be in milliseconds
         _mediaPlayer.seekTo(time);
+        Log.d(NAME, "==> seekToTime " + time * 1000);
+    } else {
+        Log.d(NAME, "==> seekToTime no called, media is not playing");
     }
-
-    Log.d(NAME, "==> seekToTime " + time);
   }
 
   @ReactMethod
@@ -148,7 +166,7 @@ MediaPlayer.OnErrorListener, MediaPlayer.OnBufferingUpdateListener {
   {
     Integer duration = 0;
     if (isMusicPlaying() || _isPaused) {
-        duration  = _mediaPlayer.getCurrentPosition();
+        duration  = (int)(_mediaPlayer.getDuration()/1000);
     }
     cb.invoke(null, duration);
     Log.d(NAME, "==> getDuration = " + duration);
@@ -158,8 +176,8 @@ MediaPlayer.OnErrorListener, MediaPlayer.OnBufferingUpdateListener {
   public void getProgress(Callback cb)
   {
     Integer duration = 0;
-    if (isMusicPlaying() || _isPaused) {
-        duration  = _mediaPlayer.getCurrentPosition();
+    if (isMusicPlaying()) {
+        duration  = (int)(_mediaPlayer.getCurrentPosition()/1000);
     }
     cb.invoke(null, duration);
     Log.d(NAME, "==> getProgress = " + duration);
@@ -169,15 +187,24 @@ MediaPlayer.OnErrorListener, MediaPlayer.OnBufferingUpdateListener {
   public void getState(Callback cb)
   {
     if (_mediaPlayer == null) {
-      return;
+        cb.invoke(null, "error");
+    } else if (_isPaused) {
+        cb.invoke(null,  "paused");
+    } else if (_isBuffering) {
+        cb.invoke(null, "buffering");
+    } else {
+        cb.invoke(null, "playing");
     }
-    Log.d(NAME, "==> getState");
   }
 
 
   private void startPlaying() {
       _mediaPlayer.start();
       _isPaused = false;
+
+      Log.d(NAME, "AudioPlayer is playing");
+
+      notifyPlayerStateChange("playing");
   }
 
   synchronized public boolean isMusicPlaying() {
@@ -211,23 +238,47 @@ MediaPlayer.OnErrorListener, MediaPlayer.OnBufferingUpdateListener {
     public boolean onError(MediaPlayer mediaPlayer, int i, int i1) {
         _buffering = 0;
         _isBuffering = false;
-        Log.d(NAME, "==> onError");
+        Log.d(NAME, String.format("AudioPlayer unexpected Error with code %d", i));
+
+        notifyPlayerStateChange("error");
+
         return false;
     }
 
     @Override
     public void onBufferingUpdate(MediaPlayer mediaPlayer, int i) {
      _buffering = i;
-        if (i == 100)
+        if (i == 100) {
             _isBuffering = false;
-        else
+            Log.d(NAME, "AudioPlayer finished buffering");
+        }
+        else {
             _isBuffering = true;
+        }
 
       Log.d(NAME, "==> onBufferingUpdate");
     }
 
 
+  // Call JS events
+  private void notifyPlayerStateChange(String state) {
+    WritableMap params = Arguments.createMap();
+        params.putString("playerState", state);
+        params.putString("type", "playerStateChange");
+
+    sendEvent(params);
+  }
+
+  private void notifyFinishedPlaying(String eventType) {
+      WritableMap params = Arguments.createMap();
+          params.putString("playerState", "playing");
+          params.putString("type", eventType);
+
+      sendEvent(params);
+  }
+
   private void sendEvent(@Nullable WritableMap params) {
+    Log.d(NAME, String.format("==== Emit ==== %s, %s", params.getString("playerState"), params.getString("type")));
     _reactContext
       .getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class)
       .emit("StreamingKitEvent", params);
