@@ -1,6 +1,20 @@
 /*
-Missing:
-    - PlayerState events : stopped and paused
+JS Events:
+    - Audio interrupts
+      1. {playerState: 'interruptStart',  type: 'audioSessionInterruption'}
+      2. {playerState: 'interruptEnd',    type: 'audioSessionInterruption'}
+
+    - Player State Changes
+      1. {playerState: 'playing',     type: 'playerStateChange'}
+      2. {playerState: 'paused',      type: 'playerStateChange'}
+      3. {playerState: 'stopped',     type: 'playerStateChange'}
+      4. {playerState: 'buffering',   type: 'playerStateChange'}
+      5. {playerState: 'error',       type: 'playerStateChange'}
+
+    - Player finished events
+      1. {playerState: 'playing',     type: 'didFinishPlayingEof'}
+Ref:
+    - AudioManager Interrupts: https://developer.android.com/training/managing-audio/audio-focus.html
 */
 
 package com.leblaaanc.RNStreamingKitManager;
@@ -21,11 +35,6 @@ import android.media.AudioManager;
 import android.media.MediaPlayer;
 
 import android.support.annotation.Nullable;
-import android.support.v4.app.NotificationManagerCompat;
-import android.support.v4.media.MediaMetadataCompat;
-import android.support.v4.media.session.MediaSessionCompat;
-import android.support.v4.media.session.PlaybackStateCompat;
-import android.support.v7.app.NotificationCompat;
 
 public class RNStreamingKitManagerModule extends ReactContextBaseJavaModule implements
 MediaPlayer.OnPreparedListener, MediaPlayer.OnCompletionListener,
@@ -35,17 +44,18 @@ MediaPlayer.OnErrorListener, MediaPlayer.OnBufferingUpdateListener {
   ReactApplicationContext _reactContext;
   volatile private MediaPlayer _mediaPlayer;
 
-  int _buffering;
+  int _seekToTime = 0;
+
   volatile boolean _isPaused;
   volatile boolean _isBuffering;
-  AudioManager _mediaAudioManager;
-  MediaSessionCompat _mediaSessionCompat;
+  AudioManager _audioManager;
+;
 
   public RNStreamingKitManagerModule(ReactApplicationContext reactContext) {
     super(reactContext);
     _reactContext  = reactContext;
-
     init();
+    initAudioInterrupts();
   }
 
   @Override
@@ -54,21 +64,30 @@ MediaPlayer.OnErrorListener, MediaPlayer.OnBufferingUpdateListener {
   }
 
   public void init() {
-     if (_mediaPlayer != null) {
-         return;
-       }
+    if (_mediaPlayer != null) {
+       return;
+    }
 
-       _mediaPlayer = new MediaPlayer();
-       _mediaPlayer.setWakeMode(_reactContext, PowerManager.PARTIAL_WAKE_LOCK);
-       _mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
+     _mediaPlayer = new MediaPlayer();
+     _mediaPlayer.setWakeMode(_reactContext, PowerManager.PARTIAL_WAKE_LOCK);
+     _mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
 
-       //set listeners
-       _mediaPlayer.setOnPreparedListener(this);
-       _mediaPlayer.setOnCompletionListener(this);
-       _mediaPlayer.setScreenOnWhilePlaying(true);
-       _mediaPlayer.setOnErrorListener(this);
-       _mediaPlayer.setOnBufferingUpdateListener(this);
-   }
+     //set listeners
+     _mediaPlayer.setOnPreparedListener(this);
+     _mediaPlayer.setOnCompletionListener(this);
+     _mediaPlayer.setScreenOnWhilePlaying(true);
+     _mediaPlayer.setOnErrorListener(this);
+     _mediaPlayer.setOnBufferingUpdateListener(this);
+     /*
+     _mediaPlayer.setOnSeekCompleteListener(new MediaPlayer.OnSeekCompleteListener() {
+         @Override
+         public void onSeekComplete(MediaPlayer mp) {
+             Log.d(NAME," ========> Seek Complete. Current Position: " + mp.getCurrentPosition());
+             //mp.start();
+         }
+     });
+     */
+ }
 
   @ReactMethod
   public void play(String url)
@@ -77,15 +96,11 @@ MediaPlayer.OnErrorListener, MediaPlayer.OnBufferingUpdateListener {
       startPlaying();
     } else {
      try {
-
         notifyPlayerStateChange("buffering");
-       Uri uri = Uri.parse(url);
        _mediaPlayer.reset();
-       _mediaPlayer.setDataSource(_reactContext, uri);
+       _mediaPlayer.setDataSource(_reactContext, Uri.parse(url));
        _mediaPlayer.prepareAsync();
        _isBuffering = true;
-
-
      } catch (Exception ex) {
        ex.printStackTrace();
      }
@@ -95,15 +110,13 @@ MediaPlayer.OnErrorListener, MediaPlayer.OnBufferingUpdateListener {
   @ReactMethod
   public void stop()
   {
-    if (_mediaPlayer == null) {
-        return;
-    }
-    _mediaPlayer.pause();
-    _mediaPlayer.reset();
-    _buffering = 0;
-    _isBuffering = false;
-
     Log.d(NAME, "==> stop");
+    if (isMusicPlaying()) {
+      _mediaPlayer.pause();
+      _mediaPlayer.reset();
+    }
+
+    _isBuffering = false;
     notifyPlayerStateChange("stopped");
   }
 
@@ -123,41 +136,33 @@ MediaPlayer.OnErrorListener, MediaPlayer.OnBufferingUpdateListener {
 
   @ReactMethod
   public void resume() {
-    if (_isPaused) {
-        _mediaPlayer.start();
-        Log.d(NAME, "==> resume");
-    } else {
-        Log.d(NAME, "==> resume not called as media is no paused");
+    Log.d(NAME, "==> resume");
+    if (!isMusicPlaying()) {
+        startPlaying();
     }
   }
 
   @ReactMethod
   public void clearQueue()
   {
-    if (_mediaPlayer == null) {
-        return;
-    }
     Log.d(NAME, "==> clearQueue() : NOT IMPLEMENTED ");
   }
 
   @ReactMethod
   public void queue(String url)
   {
-    if (_mediaPlayer == null) {
-        return;
-    }
     Log.d(NAME, "==> queue() : NOT IMPLEMENTED" );
   }
 
   @ReactMethod
   public void seekToTime(Integer time)
   {
+    _seekToTime = time * 1000;
+    Log.d(NAME, "==> seekToTime " + _seekToTime);
     if (isMusicPlaying() || _isPaused) {
         // time will be in milliseconds
-        _mediaPlayer.seekTo(time);
-        Log.d(NAME, "==> seekToTime " + time * 1000);
-    } else {
-        Log.d(NAME, "==> seekToTime no called, media is not playing");
+        _mediaPlayer.seekTo(_seekToTime);
+        _seekToTime = 0;
     }
   }
 
@@ -197,70 +202,99 @@ MediaPlayer.OnErrorListener, MediaPlayer.OnBufferingUpdateListener {
     }
   }
 
-
-  private void startPlaying() {
+  void startPlaying() {
       _mediaPlayer.start();
       _isPaused = false;
 
-      Log.d(NAME, "AudioPlayer is playing");
+      if (_seekToTime > 1000) {
+        _mediaPlayer.seekTo(_seekToTime);
+        _seekToTime = 0;
+      }
 
       notifyPlayerStateChange("playing");
+      Log.d(NAME, "AudioPlayer is playing");
   }
 
   synchronized public boolean isMusicPlaying() {
-      return _mediaPlayer != null && _mediaPlayer.isPlaying();
+    return _mediaPlayer != null && _mediaPlayer.isPlaying();
   }
 
-  synchronized public boolean isMusicPaused() {
-      return _mediaPlayer != null && _isPaused;
-  }
+  // === MEDIA PLAYER LISTENERS ===
 
-  synchronized public boolean isMusicBuffering() {
-      return _mediaPlayer != null && _isBuffering;
-  }
-
-
-  // MEDIA PLAYER EVENTS
   @Override
-    public void onPrepared(MediaPlayer mediaPlayer) {
-      Log.d(NAME, "==> onPrepared");
-      startPlaying();
-    }
+  public void onPrepared(MediaPlayer mediaPlayer) {
+    Log.d(NAME, "==> onPrepared");
+    startPlaying();
+  }
 
-    @Override
-    public void onCompletion(MediaPlayer mediaPlayer) {
-      _buffering = 0;
-      _isBuffering = false;
-      Log.d(NAME, "==> onCompletion");
-    }
+  @Override
+  public void onCompletion(MediaPlayer mediaPlayer) {
+    Log.d(NAME, "==> onCompletion");
+    _isBuffering = false;
+    notifyFinishedPlaying("didFinishPlayingEof");
+  }
 
-    @Override
-    public boolean onError(MediaPlayer mediaPlayer, int i, int i1) {
-        _buffering = 0;
+  @Override
+  public boolean onError(MediaPlayer mediaPlayer, int i, int i1) {
+    Log.d(NAME, String.format("AudioPlayer unexpected Error with code %d", i));
+    _isBuffering = false;
+    notifyPlayerStateChange("error");
+    return false;
+  }
+
+  @Override
+  public void onBufferingUpdate(MediaPlayer mediaPlayer, int i) {
+    if (i == 100) {
         _isBuffering = false;
-        Log.d(NAME, String.format("AudioPlayer unexpected Error with code %d", i));
-
-        notifyPlayerStateChange("error");
-
-        return false;
+        Log.d(NAME, "AudioPlayer finished buffering");
     }
-
-    @Override
-    public void onBufferingUpdate(MediaPlayer mediaPlayer, int i) {
-     _buffering = i;
-        if (i == 100) {
-            _isBuffering = false;
-            Log.d(NAME, "AudioPlayer finished buffering");
-        }
-        else {
-            _isBuffering = true;
-        }
-
-      Log.d(NAME, "==> onBufferingUpdate");
+    else {
+        _isBuffering = true;
+        Log.d(NAME, String.format("==> AudioPlayer buffering %d", i));
     }
+  }
 
+  // === AUDIO INTERRUPTS ===
 
-  // Call JS events
+  void initAudioInterrupts() {
+    _audioManager = (AudioManager)_reactContext.getSystemService(Context.AUDIO_SERVICE);
+
+    AudioManager.OnAudioFocusChangeListener afChangeListener =
+        new AudioManager.OnAudioFocusChangeListener() {
+            public void onAudioFocusChange(int focusChange) {
+                switch (focusChange) {
+                  case AudioManager.AUDIOFOCUS_LOSS_TRANSIENT:
+                    Log.d(NAME, "==> Audio Session Interruption case AUDIOFOCUS_LOSS_TRANSIENT.");
+                    pause();
+                    notifyAudioInterruption("interruptStart");
+                    break;
+                  case AudioManager.AUDIOFOCUS_GAIN:
+                    Log.d(NAME, "==> Audio Session Interruption case AUDIOFOCUS_GAIN.");
+                    resume();
+                    notifyAudioInterruption("interruptEnd");
+                    break;
+                  case AudioManager.AUDIOFOCUS_LOSS:
+                    //_audioManager.abandonAudioFocus(afChangeListener);
+                    Log.d(NAME, "==> Audio Session Interruption case AUDIOFOCUS_LOSS.");
+                    stop();
+                    break;
+                  default:
+                    Log.d(NAME, "==> Audio Session Interruption case default.");
+                }
+            }
+        };
+
+    int result = _audioManager.requestAudioFocus(afChangeListener,
+                                     // Use the music stream.
+                                     AudioManager.STREAM_MUSIC,
+                                     // Request permanent focus.
+                                     AudioManager.AUDIOFOCUS_GAIN);
+  }
+
+  // ~~~
+
+  // === Call JS events ===
+
   private void notifyPlayerStateChange(String state) {
     WritableMap params = Arguments.createMap();
         params.putString("playerState", state);
@@ -269,12 +303,20 @@ MediaPlayer.OnErrorListener, MediaPlayer.OnBufferingUpdateListener {
     sendEvent(params);
   }
 
-  private void notifyFinishedPlaying(String eventType) {
-      WritableMap params = Arguments.createMap();
-          params.putString("playerState", "playing");
-          params.putString("type", eventType);
+  private void notifyAudioInterruption(String state) {
+    WritableMap params = Arguments.createMap();
+        params.putString("playerState", state);
+        params.putString("type", "audioSessionInterruption");
 
-      sendEvent(params);
+    sendEvent(params);
+  }
+
+  private void notifyFinishedPlaying(String eventType) {
+    WritableMap params = Arguments.createMap();
+        params.putString("playerState", "playing");
+        params.putString("type", eventType);
+
+    sendEvent(params);
   }
 
   private void sendEvent(@Nullable WritableMap params) {
