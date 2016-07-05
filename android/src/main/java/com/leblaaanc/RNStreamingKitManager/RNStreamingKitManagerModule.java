@@ -47,7 +47,7 @@ MediaPlayer.OnErrorListener, MediaPlayer.OnBufferingUpdateListener {
   int _seekToTime = 0;
 
   volatile boolean _isPaused;
-  volatile boolean _isInterrupted;
+  volatile boolean _wasInterrupted;
   volatile boolean _isBuffering;
   AudioManager _audioManager;
 
@@ -267,7 +267,7 @@ MediaPlayer.OnErrorListener, MediaPlayer.OnBufferingUpdateListener {
                     Log.d(NAME, "==> Audio Session Interruption case AUDIOFOCUS_LOSS_TRANSIENT.");
 
                     if (isMusicPlaying())  {
-                        _isInterrupted = true;
+                        _wasInterrupted = true;
                         pause();
                         notifyAudioInterruption("interruptStart");
                     }
@@ -275,8 +275,8 @@ MediaPlayer.OnErrorListener, MediaPlayer.OnBufferingUpdateListener {
                     break;
                   case AudioManager.AUDIOFOCUS_GAIN:
                     Log.d(NAME, "==> Audio Session Interruption case AUDIOFOCUS_GAIN.");
-                    if (_isInterrupted) {
-                        _isInterrupted = false;
+                    if (_wasInterrupted) {
+                        _wasInterrupted = false;
                         resume();
                         notifyAudioInterruption("interruptEnd");
                     }
