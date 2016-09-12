@@ -48,6 +48,7 @@ MediaPlayer.OnErrorListener, MediaPlayer.OnBufferingUpdateListener {
 
   volatile boolean _isPaused;
   volatile boolean _isBuffering;
+  volatile boolean _isCall;
   AudioManager _audioManager;
 ;
 
@@ -136,6 +137,10 @@ MediaPlayer.OnErrorListener, MediaPlayer.OnBufferingUpdateListener {
 
   @ReactMethod
   public void resume() {
+    if(_isCall) {
+      _isCall = false;
+      return;
+    }
     Log.d(NAME, "==> resume");
     if (!isMusicPlaying()) {
         startPlaying();
@@ -270,12 +275,14 @@ MediaPlayer.OnErrorListener, MediaPlayer.OnBufferingUpdateListener {
                     break;
                   case AudioManager.AUDIOFOCUS_GAIN:
                     Log.d(NAME, "==> Audio Session Interruption case AUDIOFOCUS_GAIN.");
-                    resume();
+//                    not calling resume as the media manager will also do that
+//                    resume();
                     notifyAudioInterruption("interruptEnd");
                     break;
                   case AudioManager.AUDIOFOCUS_LOSS:
                     //_audioManager.abandonAudioFocus(afChangeListener);
                     Log.d(NAME, "==> Audio Session Interruption case AUDIOFOCUS_LOSS.");
+                    _isCall = true;
                     stop();
                     break;
                   default:
