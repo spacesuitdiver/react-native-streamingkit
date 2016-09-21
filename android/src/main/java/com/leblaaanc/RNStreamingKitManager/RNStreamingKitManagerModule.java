@@ -271,13 +271,13 @@ MediaPlayer.OnErrorListener, MediaPlayer.OnBufferingUpdateListener {
                   case AudioManager.AUDIOFOCUS_LOSS_TRANSIENT:
                     Log.d(NAME, "==> Audio Session Interruption case AUDIOFOCUS_LOSS_TRANSIENT.");
                     pause();
-                    notifyAudioInterruption("interruptStart");
+                    sendRnEvent("","audioSessionInterruptionBegan");
                     break;
                   case AudioManager.AUDIOFOCUS_GAIN:
                     Log.d(NAME, "==> Audio Session Interruption case AUDIOFOCUS_GAIN.");
 //                    not calling resume as the media manager will also do that
 //                    resume();
-                    notifyAudioInterruption("interruptEnd");
+                    sendRnEvent("","audioSessionInterruptionEnded");
                     break;
                   case AudioManager.AUDIOFOCUS_LOSS:
                     //_audioManager.abandonAudioFocus(afChangeListener);
@@ -315,6 +315,19 @@ MediaPlayer.OnErrorListener, MediaPlayer.OnBufferingUpdateListener {
         params.putString("playerState", state);
         params.putString("type", "audioSessionInterruption");
 
+    sendEvent(params);
+  }
+
+  /**
+  * Call this method with state (optional) and type
+  * this will send a React-Native Event accordingly
+  */
+  private void sendRnEvent(String state, String type) {
+    WritableMap params = Arguments.createMap();
+    if(!state.equals(""))
+      params.putString("playerState", state);
+    if(!type.equals(""))
+      params.putString("type", type);
     sendEvent(params);
   }
 
