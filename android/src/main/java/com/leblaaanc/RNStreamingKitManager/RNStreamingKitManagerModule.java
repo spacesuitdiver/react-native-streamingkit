@@ -113,10 +113,9 @@ MediaPlayer.OnErrorListener, MediaPlayer.OnBufferingUpdateListener {
     Log.d(NAME, "==> stop");
     if (isMusicPlaying()) {
       _mediaPlayer.pause();
-      _mediaPlayer.reset();
     }
 
-    _isBuffering = false;
+    reset();
     notifyPlayerStateChange("stopped");
   }
 
@@ -213,6 +212,12 @@ MediaPlayer.OnErrorListener, MediaPlayer.OnBufferingUpdateListener {
 
       notifyPlayerStateChange("playing");
       Log.d(NAME, "AudioPlayer is playing");
+  }
+
+  private void reset() {
+      _mediaPlayer.reset();
+      _isPaused = false;
+      _isBuffering = false;
   }
 
   synchronized public boolean isMusicPlaying() {
