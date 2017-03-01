@@ -92,7 +92,7 @@ MediaPlayer.OnErrorListener, MediaPlayer.OnBufferingUpdateListener {
   @ReactMethod
   public void play(String url)
   {
-    if (_isPaused) {
+    if (url == null && _isPaused) {
       startPlaying();
     } else {
      try {
