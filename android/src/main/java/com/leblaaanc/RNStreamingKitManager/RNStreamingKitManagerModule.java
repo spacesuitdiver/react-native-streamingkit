@@ -47,9 +47,9 @@ MediaPlayer.OnErrorListener, MediaPlayer.OnBufferingUpdateListener {
   int _seekToTime = 0;
 
   volatile boolean _isPaused;
+  volatile boolean _wasInterrupted;
   volatile boolean _isBuffering;
   AudioManager _audioManager;
-;
 
   public RNStreamingKitManagerModule(ReactApplicationContext reactContext) {
     super(reactContext);
@@ -270,13 +270,21 @@ MediaPlayer.OnErrorListener, MediaPlayer.OnBufferingUpdateListener {
                 switch (focusChange) {
                   case AudioManager.AUDIOFOCUS_LOSS_TRANSIENT:
                     Log.d(NAME, "==> Audio Session Interruption case AUDIOFOCUS_LOSS_TRANSIENT.");
-                    pause();
-                    notifyAudioInterruption("interruptStart");
+
+                    if (isMusicPlaying())  {
+                        _wasInterrupted = true;
+                        pause();
+                        notifyAudioInterruption("interruptStart");
+                    }
+
                     break;
                   case AudioManager.AUDIOFOCUS_GAIN:
                     Log.d(NAME, "==> Audio Session Interruption case AUDIOFOCUS_GAIN.");
-                    resume();
-                    notifyAudioInterruption("interruptEnd");
+                    if (_wasInterrupted) {
+                        _wasInterrupted = false;
+                        resume();
+                        notifyAudioInterruption("interruptEnd");
+                    }
                     break;
                   case AudioManager.AUDIOFOCUS_LOSS:
                     //_audioManager.abandonAudioFocus(afChangeListener);
