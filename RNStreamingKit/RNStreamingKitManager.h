@@ -6,8 +6,8 @@
 //  Copyright © 2016 Clever Lever. All rights reserved.
 //
 
-#import "RCTBridge.h"
-#import "RCTBridgeModule.h"
+#import <React/RCTBridge.h>
+#import <React/RCTBridgeModule.h>
 
 #import "STKAudioPlayer.h"
 
